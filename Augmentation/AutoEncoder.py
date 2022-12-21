@@ -51,22 +51,30 @@ class Encoder(nn.Module):
         # )
         # TODO END
 
-        self.conv1 = nn.Conv2d(in_channels=num_channels, out_channels=64, kernel_size=5, stride=1, padding=2)
+        self.conv1 = nn.Conv2d(in_channels=num_channels,
+                               out_channels=64, kernel_size=5,
+                               stride=1, padding=2)
         self.bn1 = nn.BatchNorm2d(num_features=64)
         self.poo1 = nn.MaxPool2d(kernel_size=2)
         self.relu1 = nn.ReLU()
 
-        self.conv2 = nn.Conv2d(in_channels=64, out_channels=32, kernel_size=5, stride=1, padding=2)
+        self.conv2 = nn.Conv2d(in_channels=64,
+                               out_channels=32, kernel_size=5,
+                               stride=1, padding=2)
         self.bn2 = nn.BatchNorm2d(num_features=32)
         self.poo2 = nn.MaxPool2d(kernel_size=2)
         self.relu2 = nn.ReLU()
 
-        self.conv3 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, stride=1, padding=2)
+        self.conv3 = nn.Conv2d(in_channels=32,
+                               out_channels=32, kernel_size=5,
+                               stride=1, padding=2)
         self.bn3 = nn.BatchNorm2d(num_features=32)
         self.poo3 = nn.MaxPool2d(kernel_size=2)
         self.relu3 = nn.ReLU()
 
-        self.conv4 = nn.Conv2d(in_channels=32, out_channels=latent_dim, kernel_size=5, stride=1, padding=2)
+        self.conv4 = nn.Conv2d(in_channels=32,
+                               out_channels=latent_dim, kernel_size=5,
+                               stride=1, padding=2)
         self.bn4 = nn.BatchNorm2d(num_features=latent_dim)
         self.poo4 = nn.MaxPool2d(kernel_size=2)
         self.relu4 = nn.ReLU()
@@ -160,21 +168,27 @@ class Decoder(nn.Module):
         #         # nn.Tanh()
         # )
 
-        self.conv1 = nn.ConvTranspose2d(in_channels=latent_dim, out_channels=32, kernel_size=4,
-                               stride=2, padding=1)
+        self.conv1 = nn.ConvTranspose2d(in_channels=latent_dim,
+                                        out_channels=32, kernel_size=4,
+                                        stride=2, padding=1)
         self.bn1 = nn.BatchNorm2d(num_features=32)
         self.relu1 = nn.ReLU()
-        self.conv2 = nn.ConvTranspose2d(in_channels=32, out_channels=32, kernel_size=4,
-                               stride=2, padding=1)
+        self.conv2 = nn.ConvTranspose2d(in_channels=32,
+                                        out_channels=32, kernel_size=4,
+                                        stride=2, padding=1)
         self.bn2 = nn.BatchNorm2d(num_features=32)
         self.relu2 = nn.ReLU()
-        self.conv3 = nn.ConvTranspose2d(in_channels=32, out_channels=64, kernel_size=4, stride=2,
-                               padding=1)
+        self.conv3 = nn.ConvTranspose2d(in_channels=32,
+                                        out_channels=64, kernel_size=4,
+                                        stride=2,
+                                        padding=1)
         self.bn3 = nn.BatchNorm2d(num_features=64)
         self.relu3 = nn.ReLU()
-        self.conv4 = nn.ConvTranspose2d(in_channels=64, out_channels=num_channels, kernel_size=4,
-                               stride=2,
-                               padding=1)
+        self.conv4 = nn.ConvTranspose2d(in_channels=64,
+                                        out_channels=num_channels,
+                                        kernel_size=4,
+                                        stride=2,
+                                        padding=1)
         self.bn4 = nn.BatchNorm2d(num_features=num_channels)
         self.relu4 = nn.ReLU()
 
